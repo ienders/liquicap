@@ -14,8 +14,7 @@ Makes a wonderful companion to tomcap! (http://github.com/ienders/tomcap)
 
 == INSTALLATION:
 
- $ gem sources -a http://gems.github.com/ (if you havn't already, which is unlikely)
- $ gem install ienders-liquicap
+ $ gem install liquicap
 
 == USAGE:
 
