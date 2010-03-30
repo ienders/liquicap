@@ -31,6 +31,13 @@ you use via :mvn_profile.  (For example, your staging environment may run a stag
 
   set :mvn_git_repo, "git@github.com:ienders/my_java_app.git"
   set :mvn_profile,  "my_java_app,production"
+  
+OPTIONAL ARGUMENTS:
+
+Generally, Capistrano is not privvy to the environment variables of your deploy-as user.  This is SSH doing its thing for non-interactive sessions.  You can get around it by tweaking your SSH config, but if you are lazy or cannot... you may need to tweak your Java/MVN environment information in your capistrano script to get around this.  Values provided are for example only and may differ for you:
+
+  set :m2_home,       "/usr/local/apache-maven-2.1.0"  --> defaults to M2_HOME of your deploy user
+  set :java_home,     "/usr/local/jdk1.6.0_14"         --> defaults to JAVA_HOME of your deploy user
 
 = Assign a java role to the server you want to run your liquibase migration from
 
@@ -40,7 +47,7 @@ you use via :mvn_profile.  (For example, your staging environment may run a stag
 
 = Deploy
 
-  $ cap <environment> deploy:java:migrate
+  $ cap <environment> deploy:liquibase:update
 
 == AUTHOR:
 
