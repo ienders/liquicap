@@ -15,7 +15,7 @@ Capistrano::Configuration.instance(:must_exist).load do
         set :m2_home,             "/usr/local/apache-maven-2.1.0"  --> defaults to M2_HOME of your deploy user
         set :java_home,           "/usr/local/jdk1.6.0_14" --> defaults to use JAVA_HOME of your deploy user
       DESC
-      task :update, :roles => :java, :except => { :no_release => true } do
+      task :update, :roles => :java do
         require 'net/http'
 
         raise ArgumentError, "Must set mvn_git_repo" unless mvn_git_repo = fetch(:mvn_git_repo, nil)
